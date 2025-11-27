@@ -1,0 +1,26 @@
+[project]
+name = "llms"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    # Core dependencies
+    "jupyterlab>=4.0",
+    "tiktoken>=0.5.1",
+    "matplotlib>=3.7.1",
+    "tqdm>=4.66.1",
+    "numpy>=1.26",
+    "pandas>=2.2.1",
+    "psutil>=5.9.5",
+
+    # Platform-specific: torch for Intel macOS
+    "torch>=2.2.2,<2.6; sys_platform == 'darwin' and platform_machine == 'x86_64'",
+    # Platform-specific: torch for all other platforms (Linux, Windows, ARM macOS)
+    "torch>=2.2.2; sys_platform != 'darwin' or platform_machine != 'x86_64'",
+
+    # Platform-specific: tensorflow for Intel macOS
+    "tensorflow>=2.16.2; sys_platform == 'darwin' and platform_machine == 'x86_64'",
+    # Platform-specific: tensorflow for all other platforms
+    "tensorflow>=2.18.0; sys_platform != 'darwin' or platform_machine != 'x86_64'",
+]
